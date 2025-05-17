@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() {
+void main(){
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
@@ -8,42 +7,48 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Home()
-    );
+    return MaterialApp(home:Home());
   }
 }
-class Home  extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
+class Home extends StatelessWidget {
+  Widget build(BuildContext context){
     return Scaffold(
-        appBar: AppBar(title: Text("first app"),backgroundColor: Colors.purple,) ,
-        body: Center(
-      
+      appBar: AppBar(title: Text("Home"),backgroundColor: Colors.purple,),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Container(
+            
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-               Text("hello",style: TextStyle(fontSize: 40,color: Colors.amber),),
-               ElevatedButton(
-                
             
-                
-                onPressed: () {
-                  print("worked");
+              children: <Widget>[
+                Text("first page",style: TextStyle(fontSize: 20,color: Colors.red),),
+                SizedBox(height: 20,),
+                ElevatedButton(onPressed:(){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Aboutus()));
-                },
-                child: Text("About us"),
-               ),
-               Text("click for result"),
-                
+                }, 
+                child: 
+          
+                  Text("Aboutus",style: TextStyle(fontSize: 20,color: Colors.green),),
+                ),
+                SizedBox(height: 20,),
+                ElevatedButton(onPressed:(){
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>Help()));
+                }, 
+                child: 
+              
+                  Text("Help",style:TextStyle(fontSize: 20,color: const Color.fromARGB(255, 9, 176, 210)),),
+                )
               ],
             ),
           ),
-        
+        ),
+      ),
+
+        );
       
-    );
   }
 }
 class Aboutus extends StatelessWidget {
@@ -52,8 +57,19 @@ class Aboutus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("about us"),backgroundColor: Colors.red,),
-      body: Text("This is about us screen",style: TextStyle(fontSize: 30,color: Colors.blue),),
+      appBar: AppBar(title: Text("aboutus"),),
+      body: Text("this is about us screen"),
+    );
+  }
+}
+class Help extends StatelessWidget {
+  const Help ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("help"),),
+      body: Text("this is help screen"),
     );
   }
 }
